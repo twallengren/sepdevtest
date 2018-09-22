@@ -42,7 +42,7 @@ class App extends Component {
 
   addcreature = creature => {
     // axios (POST)
-    axios.post(BASE_URL + "/api/creatures", { newcreature: this.state.newcreattext, newimg: this.state.newcreatimg, scary: { level: 7 } }).then(resp => {
+    axios.post(BASE_URL + "/api/creatures", { newcreature: this.state.newcreattext, newimg: this.state.newcreatimg, scary: { level: this.state.newcreatscary } }).then(resp => {
 
       this.setState({ creatures: resp.data })
 
