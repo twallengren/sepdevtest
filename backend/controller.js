@@ -46,10 +46,23 @@ module.exports = {
     update: (req, res, next) => {
 
         const { id } = req.params;
-        const { changename, changeimg, changescary } = req.body;
+        let { changename, changeimg, changescary } = req.body;
 
         updatedcreatures = creatures.map(creature => {
             if (creature.id == id) {
+
+                if (changename === '') {
+                    changename = creature.name
+                }
+
+                if (changeimg === '') {
+                    changeimg = creature.image_url
+                }
+
+                if (changescary === '') {
+                    changescary = creature.scary.level
+                }
+
                 return {
                     id: creature.id,
                     name: changename,

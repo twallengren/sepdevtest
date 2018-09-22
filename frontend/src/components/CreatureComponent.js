@@ -36,16 +36,13 @@ class CreatureComponent extends Component {
             <div key={this.props.c.id} className='creature'>
 
                 {/* creature text */}
-                <p>{this.props.c.name.toUpperCase()}</p>
+                <p className='disptext' >{this.props.c.name.toUpperCase()}</p>
+
+                {/* scary level text */}
+                <p className='disptext' >Scary Level: {this.props.c.scary.level}</p>
 
                 {/* creature GIF */}
                 <img src={this.props.c.image_url} alt={this.props.c.name} />
-
-                {/* Button that deletes creature/gif (makes DELETE request) */}
-                <button onClick={() => this.props.deletecreature(this.props.c.id)} className='myButton' >Delete creature</button>
-
-                {/* Button that gets a new creature for a given block (use PUT request) */}
-                <button onClick={() => this.props.updatecreature(this.props.c.id, this.state)} className='myButton' >Update creature</button>
 
                 <div>
 
@@ -55,7 +52,13 @@ class CreatureComponent extends Component {
 
                 </div>
 
-            </div>
+                {/* Button that gets a new creature for a given block (use PUT request) */}
+                <button onClick={() => this.props.updatecreature(this.props.c.id, this.state)} className='myButton' >Update creature</button>
+
+                {/* Button that deletes creature/gif (makes DELETE request) */}
+                <button onClick={() => this.props.deletecreature(this.props.c.id)} className='myButton' >Delete creature</button>
+
+            </div >
 
         )
 
